@@ -112,23 +112,19 @@ static void handleBacklight(Type /* type */, const LightState& state) {
     set(LCD_LED BRIGHTNESS, brightness);
 }
 
-static void handleNotification(const LightState& state) {
-    uint32_t whiteBrightness = getScaledBrightness(state, getMaxBrightness(WHITE_LED MAX_BRIGHTNESS));
+static void setNotification(const LightState& state) {
+    uint32_t redBrightness = getScaledBrightness(state, getMaxBrightness(BLUE_LED MAX_BRIGHTNESS));
 
-    /* Disable breathing or blinking */
-    set(WHITE_LED BREATH, 0);
-    set(WHITE_LED DELAY_OFF, 0);
-    set(WHITE_LED DELAY_ON, 0);
+    /* Disable breathing */
+    set(BLUE_LED BREATH, 0);
 
-    switch (state.flashMode) {
-        case Flash::HARDWARE:
-        case Flash::TIMED:
-            /* Breathing */
-            set(WHITE_LED BREATH, 1);
-            break;
-        case Flash::NONE:
-        default:
-            set(WHITE_LED BRIGHTNESS, whiteBrightness);
+    if (state.flashMode == Flash::TIMED) {
+        /* Enable breathing */
+        set(BLUE_LED BREATH, 1);
+        set(BLUE_LED DELAY_OFF, state.flashOnMs);
+	set(BLUE_LED DELAY_ON, state.flashOffMs);
+    } else {
+        set(BLUE_LED BRIGHTNESS, redBrightness);
     }
 }
 
