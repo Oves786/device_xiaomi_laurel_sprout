@@ -118,8 +118,8 @@ PRODUCT_PACKAGES += \
     qcom.fmradio
 
 # Fingerprint
-PRODUCT_PACKAGES += \
-    lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_trinket
+#PRODUCT_PACKAGES += \
+#    lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_trinket
 
 #Hotspot
 PRODUCT_COPY_FILES += \
