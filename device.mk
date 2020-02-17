@@ -183,9 +183,6 @@ PRODUCT_PACKAGES += \
     qti-telephony-hidl-wrapper \
     qti_telephony_hidl_wrapper.xml
 
-PRODUCT_BOOT_JARS += \
-    telephony-ext
-
 # WiFi Display
 PRODUCT_PACKAGES += \
     libnl
