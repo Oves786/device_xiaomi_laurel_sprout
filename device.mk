@@ -184,8 +184,7 @@ PRODUCT_PACKAGES += \
     qti_telephony_hidl_wrapper.xml
 
 PRODUCT_BOOT_JARS += \
-    ims-ext-common_system \
-    telephony-ext
+    ims-ext-common_system 
 
 # Boot control HAL
  PRODUCT_PACKAGES += \
