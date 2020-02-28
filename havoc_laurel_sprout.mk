@@ -20,14 +20,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 
 # Inherit some common PixelExperience stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+$(call inherit-product, vendor/havoc/config/common_full_phone.mk)
 TARGET_BOOT_ANIMATION_RES := 720
-TARGET_GAPPS_ARCH := arm64
 TARGET_INCLUDE_WIFI_EXT := true
 PRODUCT_SHIPPING_API_LEVEL := 28
 
+# Official
+export export HAVOC_BUILD_TYPE=FAN_EDITION
+
+# Maintainer
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.havoc.maintainer=PRAKASHIP78
+
+
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := aosp_laurel_sprout
+PRODUCT_NAME := havoc_laurel_sprout
 PRODUCT_DEVICE := laurel_sprout
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := MI A3
